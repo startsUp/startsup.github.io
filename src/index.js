@@ -6,23 +6,24 @@ import * as serviceWorker from './serviceWorker';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';  
 import blueGrey from "@material-ui/core/colors/blueGrey";
 import lightGreen from "@material-ui/core/colors/lightGreen";
+import { fade } from '@material-ui/core/styles/colorManipulator';
 
 const theme = createMuiTheme({
     palette: {
         type: "dark",
         primary: {
             light: '#6200EE',
-            main: '#3700B3',
+            main: "#18ffff",
             dark: '#BB86FC',
             contrastText: "#B2FF59"
         },
         secondary: {
             light: '#03DAC6',
-            main: '#03DAC6',//#B2FF59
+            main: '#03DAC6',//#18ffff
             dark: '#03DAC6',
         },
         background: {
-            paper: '#1F2518',
+            paper: fade('#fff',0.16),
             default: '#121212'
         }
        

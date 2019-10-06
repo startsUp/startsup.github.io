@@ -2,8 +2,9 @@ import info from '../res/info'
 import React, { Component } from 'react'
 import Card from './card' 
 import Stepper from './stepper'
+import { Paper } from '@material-ui/core';
 export const Section = props => (
-    <section className={props.title} id={props.title}>
+    <Paper id={props.title}>
         <div>
             <div id='section-title'>
                 {props.title}
@@ -19,5 +20,5 @@ export const Section = props => (
                 }
             </div>
         </div>
-    </section>
+    </Paper>
 )

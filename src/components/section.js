@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import Card from './card' 
 import Stepper from './stepper'
 export const Section = props => (
-    <section className={props.title}>
+    <section className={props.title} id={props.title}>
         <div>
             <div id='section-title'>
                 {props.title}
@@ -15,7 +15,7 @@ export const Section = props => (
                     })
                 }
                 {props.title==='Experience' &&
-                    <Stepper/>
+                    <Stepper info={info}/>
                 }
             </div>
         </div>

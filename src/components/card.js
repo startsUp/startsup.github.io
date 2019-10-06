@@ -14,6 +14,7 @@ const styles = {
   card: {
     maxWidth: 320,
     height: 400,
+    backgroundImage: 'linear-gradient(to top, lightgrey 0%, lightgrey 1%, #e0e0e0 26%, #efefef 48%, #d9d9d9 75%, #bcbcbc 100%);'
   },
   media: {
     height: 180,
@@ -47,7 +48,7 @@ function MediaCard(props) {
                 </CardContent>
             </CardActionArea>
             <CardActions className={classes.actions}>
-                <Button size="small" color="primary">
+                <Button size="small" color="primary" href={props.info.link} target="_blank">
                     View
                 </Button>
                 <Button size="small" color="primary">

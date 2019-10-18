@@ -13,9 +13,18 @@ import Paper from '@material-ui/core/Paper';
 import Box from '@material-ui/core/Box';
 
 const useStyles = makeStyles(theme => ({
+	root: {
+		height: '100vh',
+		display: 'grid',
+		gridTemplateRows: 'auto'
+	},
     title: {
 		fontFamily: '"Righteous", cursive',
 		paddingBottom: '0.3em'
+	},
+	box: {
+		maxHeight: '100%',
+		overflow: 'auto'
 	},
 	titleContainer: {
 		textAlign: 'center',
@@ -42,20 +51,23 @@ export default function Home(props){
     const classes = useStyles();
   
     return (
-			<Container component="main" maxWidth="md">
+			<Container component="main" maxWidth="md" className={classes.root}>
 					<CssBaseline />
 					<Box className={classes.titleContainer}>
-						<Typography variant="h2" color="primary" className={classes.title}>Shardool Patel</Typography>
-						<Typography variant="h6">
+						<Typography variant="h3" color="primary" className={classes.title}>Shardool Patel</Typography>
+						<Typography variant="body1">
 						3rd-year Software Engineering - Embedded Systems student who loves building 
 						scalable and performant software. Interested in utilizing 
 						ML, NLP, and AI to build smart software that can help people. 
 						</Typography>					
 					</Box>
-			
+					<NavBar></NavBar>
 					
-				
-					<Section title='Experience' contentClass='experience'/>
+					<Box className={classes.box}>
+						<Section title='Experience' contentClass='experience'/>
+						<Section title='Projects' contentClass='projects'/>
+					</Box>
+					
 			</Container>
       
     )

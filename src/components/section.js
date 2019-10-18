@@ -4,8 +4,8 @@ import Card from './card'
 import Stepper from './stepper'
 import { Paper } from '@material-ui/core';
 export const Section = props => (
-    <Paper id={props.title}>
-        <div>
+    <Paper>
+        <a name={props.title}>
             <div id='section-title'>
                 {props.title}
             </div>
@@ -19,6 +19,6 @@ export const Section = props => (
                     <Stepper info={info}/>
                 }
             </div>
-        </div>
+        </a>
     </Paper>
 )

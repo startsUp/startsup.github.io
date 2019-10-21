@@ -11,12 +11,13 @@ import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import Box from '@material-ui/core/Box';
+import CanvasScene from './components/canvas';
 
 const useStyles = makeStyles(theme => ({
 	root: {
 		height: '100vh',
 		display: 'grid',
-		gridTemplateRows: 'auto'
+        gridTemplateRows: 'auto',
 	},
     title: {
 		fontFamily: '"Righteous", cursive',
@@ -24,7 +25,8 @@ const useStyles = makeStyles(theme => ({
 	},
 	box: {
 		maxHeight: '100%',
-		overflow: 'auto'
+        overflow: 'auto',
+        background: theme.palette.background.default
 	},
 	titleContainer: {
 		textAlign: 'center',
@@ -51,7 +53,10 @@ export default function Home(props){
     const classes = useStyles();
   
     return (
-			<Container component="main" maxWidth="md" className={classes.root}>
+        <div>
+             <CanvasScene/>
+             <Container component="main" maxWidth="md" className={classes.root}>
+                   
 					<CssBaseline />
 					<Box className={classes.titleContainer}>
 						<Typography variant="h3" color="primary" className={classes.title}>Shardool Patel</Typography>
@@ -69,6 +74,8 @@ export default function Home(props){
 					</Box>
 					
 			</Container>
+        </div>
+			
       
     )
   

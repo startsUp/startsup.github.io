@@ -1,4 +1,4 @@
 export default interface SceneSubject {
     update: Function
-    getSubject: Function
+    getSubject(): THREE.Object3D
 }

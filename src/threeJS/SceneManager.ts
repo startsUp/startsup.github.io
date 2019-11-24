@@ -31,6 +31,7 @@ export default class SceneManager {
         this.renderer = this.buildRender(screenMetaData);
         this.camera = this.buildCamera(screenMetaData);
         this.loader = this.getModelLoader();
+        this.sceneSubjects = [];
     }
     
    // const sceneSubjects = createSceneSubjects(scene, loader);
@@ -112,11 +113,9 @@ export default class SceneManager {
         
     }
 
-    addSubjects = (sceneSubjects) => {
-        sceneSubjects.forEach(subject => {
-			this.scene.add(subject);
-        })
-        this.sceneSubjects = [...this.sceneSubjects, sceneSubjects]
+    addSubject= (subject: SceneSubject) => {
+        this.scene.add(subject.getSubject());
+        this.sceneSubjects.push(subject)
     }
 
     onWindowResize = () => {

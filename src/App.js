@@ -20,7 +20,7 @@ const useStyles = makeStyles(theme => ({
         gridTemplateRows: 'auto',
 	},
     title: {
-		fontFamily: '"Righteous", cursive',
+		fontFamily: '"Playfair Display", serif',
 		paddingBottom: '0.3em'
 	},
 	box: {

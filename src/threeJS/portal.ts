@@ -1,6 +1,7 @@
 import  SceneSubject  from './SceneSubject'
 import * as THREE from 'three'
 import { GLTFLoader, GLTF } from 'three/examples/jsm/loaders/GLTFLoader';
+import SceneManager from './SceneManager'
 
 export class Portal implements SceneSubject{
     public portal: THREE.Object3D;
@@ -23,11 +24,11 @@ export class Portal implements SceneSubject{
             var {x, y, z} = this.initOptions.rotation;
             this.portal.rotation .set(x,y,z);
         }
-        this.scene.add( this.portal );
+        this.sceneManager.addSubject( this );
         
     }
 
-    constructor(private scene: THREE.Scene, 
+    constructor(private sceneManager: SceneManager, 
                 private loader: GLTFLoader, 
                 private modelPath: string, 
                 protected initOptions: {scale: THREE.Vector3,

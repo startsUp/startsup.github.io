@@ -8,11 +8,11 @@ export default containerElement => {
 
 
 	var camera = sceneManager.getCamera();
-  var plane = new THREE.Plane().setFromNormalAndCoplanarPoint(new THREE.Vector3(0, 0, 1), new THREE.Vector3(0, 0, 1));
-  var raycaster = new THREE.Raycaster();
+    var plane = new THREE.Plane().setFromNormalAndCoplanarPoint(new THREE.Vector3(0, 0, 1), new THREE.Vector3(0, 0, 1));
+    var raycaster = new THREE.Raycaster();
 	var edge = new THREE.Vector2();
 	var edgePoint = new THREE.Vector3();
-	const createScene = new PortalScene();
+	const createScene = new PortalScene(sceneManager);
 	const LEFT_EDGE = {x: -1, y: 0};
 	const RIGHT_EDGE = {x: 1, y: 0};
 	var btnMove = document.getElementById('btnMove');

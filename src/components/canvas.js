@@ -19,10 +19,8 @@ function CanvasScene (){
 
   return (
 	  <div ref={element => threeContainer = element}>
-		  <button id="btnMove">
-				Click
-			</button>
-		</div>
+		  
+      </div>
   );
 }
 

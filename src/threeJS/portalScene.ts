@@ -18,19 +18,19 @@ export default class PortalScene{
         const scene = sceneManager.getScene()
         const loader = sceneManager.getModelLoader()
 
-        this.bluePortal = new Portal(sceneManager, loader, blue,
-        {
-            scale: new THREE.Vector3(0.5,0.5,0.5),
-            position: new THREE.Vector3(-15, 0, 0),
-            rotation: new THREE.Vector3(0, Math.PI/1.5, 0),
-        })
+        // this.bluePortal = new Portal(sceneManager, loader, blue,
+        // {
+        //     scale: new THREE.Vector3(0.5,0.5,0.5),
+        //     position: new THREE.Vector3(-15, 0, 0),
+        //     rotation: new THREE.Vector3(0, Math.PI/1.5, 0),
+        // })
 
-        this.orangePortal = new Portal(sceneManager, loader, orange,
-        {
-            scale: new THREE.Vector3(0.5,0.5,0.5),
-            position: new THREE.Vector3(15, 0, 0),
-            rotation: new THREE.Vector3(0, -Math.PI/1.5,0),
-        })
+        // this.orangePortal = new Portal(sceneManager, loader, orange,
+        // {
+        //     scale: new THREE.Vector3(0.5,0.5,0.5),
+        //     position: new THREE.Vector3(15, 0, 0),
+        //     rotation: new THREE.Vector3(0, -Math.PI/1.5,0),
+        // })
         
         this.cube = new Cube(sceneManager, loader, cube);
 

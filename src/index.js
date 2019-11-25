@@ -10,29 +10,25 @@ import { fade } from '@material-ui/core/styles/colorManipulator';
 
 const theme = createMuiTheme({
     palette: {
-        type: "dark",
-        primary: {
-            light: '#6200EE',
-            main: "#18ffff",
-            dark: '#BB86FC',
-            //contrastText: "#B2FF59"
-        },
-        secondary: {
-            light: '#03DAC6',
-            main: '#03DAC6',//#18ffff
-            dark: '#03DAC6',
-        },
         background: {
             paper: fade('#fff',0.16),
-            default: '#121212'
+            default: '#ECE9E6'
+
         }
        
     },
  
      typography: {
-     fontFamily: [
-        '"Hammersmith One", sans-serif'
-     ].join(','),
+        fontFamily: [
+            '"Playfair Display", serif',
+            
+        ].join(','),
+        body1: {
+            fontFamily: '"Lato", sans-serif'
+        },
+        body2: {
+            fontFamily: '"Lato", sans-serif'
+        }
    },
  });
 

@@ -22,8 +22,8 @@ export default class SceneManager {
         this.canvas = canvas;
 
         const screenMetaData = {
-            width: canvas.width,
-            height: canvas.height,
+            width: 100,
+            height: 100,
             canvas: canvas
         }
         
@@ -41,8 +41,8 @@ export default class SceneManager {
         var ambientLight = new THREE.AmbientLight( 0xcccccc );
         scene.add( ambientLight );
                     
-        var directionalLight = new THREE.DirectionalLight( 0xffffff );
-        directionalLight.position.set( 0, 1, 1 ).normalize();
+        var directionalLight = new THREE.DirectionalLight( 0xffffff, 0.8);
+        directionalLight.position.set( 0, 4, 11 ).normalize();
         scene.add( directionalLight );	
 
         return scene;
@@ -69,12 +69,13 @@ export default class SceneManager {
 
     buildCamera = ({ width, height }) => {
         const aspectRatio = width / height;
-        const fieldOfView = 60;
+        const fieldOfView = 20;
         const nearPlane = 1;
         const farPlane = 1000; 
         const camera = new THREE.PerspectiveCamera(fieldOfView, aspectRatio, nearPlane, farPlane);
-        camera.position.set( 0 , 0 , 0);
-        camera.position.z = 15;
+        camera.position.set( 0 , 4 , 11);
+        camera.lookAt(new THREE.Vector3(0,0,0));
+        
     
         return camera;
     }

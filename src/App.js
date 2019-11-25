@@ -11,26 +11,32 @@ import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import Box from '@material-ui/core/Box';
+import Grid from '@material-ui/core/Grid';
 import CanvasScene from './components/canvas';
+import Tooltip from '@material-ui/core/Tooltip';
+import Icon from '@material-ui/core/Icon';
+import { width } from '@material-ui/system';
 
 const useStyles = makeStyles(theme => ({
 	root: {
-		height: '100vh',
-		display: 'grid',
-        gridTemplateRows: 'auto',
+
 	},
     title: {
-		fontFamily: '"Playfair Display", serif',
-		paddingBottom: '0.3em'
+		fontFamily: '"Playfair Display", serif',    
 	},
 	box: {
 		maxHeight: '100%',
         overflow: 'auto',
         background: theme.palette.background.default
-	},
+    },
+    icons: {
+        paddingTop: '0.3em',
+        display: 'grid',
+        gridTemplateColumns: '1fr 1fr 1fr',
+        width: '100px'
+    },
 	titleContainer: {
-		textAlign: 'center',
-		padding: '1em'
+		padding: '5em 0 5em 0'
 	},
 	image: {
 		backgroundImage: "url(https://source.unsplash.com/random)",
@@ -49,28 +55,59 @@ const useStyles = makeStyles(theme => ({
 	}
     }));
 
+function Title(){
+    const classes = useStyles();
+    return(
+        <Box className={classes.titleContainer}>
+            <div className="title-bar">
+                <div id="name-div">
+                    <Typography variant="h3" color="primary" className={classes.title}>Shardool Patel</Typography>
+                    <Typography variant="body1">
+                        Learner | Student | Software Engineer 
+                    </Typography>	
+                    <Box className={classes.icons}>
+                        <Tooltip title="About Me">
+                            <a href="#Me">
+                                <Icon>person_outline</Icon>
+                            </a>
+                        </Tooltip>
+                        <Tooltip title="Work Experience">
+                            <a href="#Work">
+                                <Icon>work_outline</Icon>
+                            </a>
+                        </Tooltip>
+                        <Tooltip title="Projects">
+                            <a href="Projects">
+                            <Icon className="material-icons-outlined">palette</Icon>
+                            </a>
+                        </Tooltip>
+                    </Box>	
+                    
+                </div>
+            	<div id="canvas-div">
+                    <CanvasScene/>
+                </div>
+            </div>
+            	
+        </Box>
+    )
+
+}
 export default function Home(props){
     const classes = useStyles();
   
     return (
         <div>
-             <CanvasScene/>
-             <Container component="main" maxWidth="md" className={classes.root}>
+             
+             <Container className={classes.root}>
                    
 					<CssBaseline />
-					<Box className={classes.titleContainer}>
-						<Typography variant="h3" color="primary" className={classes.title}>Shardool Patel</Typography>
-						<Typography variant="body1">
-						3rd-year Software Engineering - Embedded Systems student who loves building 
-						scalable and performant software. Interested in utilizing 
-						ML, NLP, and AI to build smart software that can help people. 
-						</Typography>					
-					</Box>
-					<NavBar></NavBar>
+					<Title></Title>
+			
 					
-					<Box className={classes.box}>
-						<Section title='Experience' contentClass='experience'/>
-						<Section title='Projects' contentClass='projects'/>
+					<Box>
+						<Section title='Experience' contentClass='experience' icon="work_outline"/>
+						<Section title='Projects' contentClass='projects' icon="palette"/>
 					</Box>
 					
 			</Container>

@@ -1,6 +1,7 @@
 import SceneManager from './SceneManager';
 import * as THREE from 'three';
 import PortalScene from './portalScene';
+import RotatingPotScene from './rotatingPot';
 
 export default containerElement => {
   const canvas = createCanvas(document, containerElement);
@@ -12,28 +13,15 @@ export default containerElement => {
     var raycaster = new THREE.Raycaster();
 	var edge = new THREE.Vector2();
 	var edgePoint = new THREE.Vector3();
-	const createScene = new PortalScene(sceneManager);
+	const createScene = new RotatingPotScene(sceneManager);
 	const LEFT_EDGE = {x: -1, y: 0};
 	const RIGHT_EDGE = {x: 1, y: 0};
-	var btnMove = document.getElementById('btnMove');
-
-  var box = new THREE.Mesh(new THREE.BoxGeometry(2, 2, 2), new THREE.MeshLambertMaterial({
-    color: "green"
-		}));
-	sceneManager.getScene().add(box);
-
-	btnMove.addEventListener("click", onClick, false);
-	
-	function onClick(){
-	edge.set(RIGHT_EDGE.x, RIGHT_EDGE.y); // NDC of the bottom-left corner
-  raycaster.setFromCamera(edge, camera);
-  raycaster.ray.intersectPlane(plane, edgePoint);
-  box.position.copy(edgePoint)
-    .add(new THREE.Vector3(1, 1, -3));
-	}
 
 
-  bindEventListeners();
+  
+
+
+ // bindEventListeners();
   render();
 	
   function createCanvas(document, containerElement) {

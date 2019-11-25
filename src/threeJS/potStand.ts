@@ -3,11 +3,9 @@ import * as THREE from 'three'
 import { GLTFLoader, GLTF } from 'three/examples/jsm/loaders/GLTFLoader';
 import SceneManager from './SceneManager';
 
-export class Cube implements SceneSubject{
-    public cube: THREE.Object3D;
-    public rotation: THREE.Vector3;
-    public speed: THREE.Vector3;
-    
+export class PotStand implements SceneSubject{
+    public stand: THREE.Object3D;
+
     loadModel(modelPath) {
         this.loader.load(modelPath,  gltf => this.initLoad(gltf), undefined, function ( error ) {
             console.error( error );
@@ -15,8 +13,9 @@ export class Cube implements SceneSubject{
     }
 
     initLoad(gltf : GLTF){
-        this.cube = gltf.scene.children[0]
-        this.cube.scale.set(0.03, 0.03, 0.03);
+        this.stand = gltf.scene.children[0]
+        this.stand.scale.set(0.03, 0.03, 0.03);
+        this.stand.position.set(0, -0.5, 0);
         this.sceneManager.addSubject( this );
     }
 
@@ -24,22 +23,9 @@ export class Cube implements SceneSubject{
         if(modelPath){
             this.loadModel(modelPath);
         }
-
-        this.rotation = new THREE.Vector3(0.1,0.1,0.1);
-        
     }
-
-    update = () => {
-        if(this.cube){
-            //this.cube.position.x += this.speed.x;
-             
-             this.cube.rotation.x += this.rotation.x;
-            // this.cube.position.z += this.speed.z;
-            
-        }
-    }
-
+    update = () => {}
     getSubject = () => {
-        return this.cube;
+        return this.stand;
     }
 }

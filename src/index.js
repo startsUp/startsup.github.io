@@ -27,7 +27,8 @@ const theme = createMuiTheme({
             fontFamily: '"Lato", sans-serif'
         },
         body2: {
-            fontFamily: '"Lato", sans-serif'
+            fontFamily: '"Lato", sans-serif',
+            fontSize: '0.935rem'
         }
    },
  });

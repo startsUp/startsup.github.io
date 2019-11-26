@@ -16,6 +16,7 @@ const BindKeyboardSwipeableViews = bindKeyboard(SwipeableViews);
 const tutorialSteps = [
   {
     label: 'ArcelorMittal Dofasco | Software Engineering Intern',
+    
     timeline: 'May 2019 - Present',
     work: [
         'Applied Object Oriented design principles to build and deploy full-stack applications for internal business users using .NET, Java and Angular',
@@ -71,7 +72,7 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.background.default,
   },
   label: {
-    fontWeight: '500',
+    fontWeight: '700',
     fontFamily: theme.typography.h1.fontFamily
   },
   workList: {

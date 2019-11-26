@@ -106,6 +106,7 @@ export default function Home(props){
 			
 					
 					<Box>
+                        <Section title='About Me' contentClass='aboutme' icon="person_outline"/>
 						<Section title='Experience' contentClass='experience' icon="work_outline"/>
 						<Section title='Projects' contentClass='projects' icon="palette"/>
 					</Box>

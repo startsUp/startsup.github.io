@@ -9,6 +9,8 @@ import Grid from '@material-ui/core/Grid';
 import Icon from '@material-ui/core/Icon';
 import { makeStyles } from "@material-ui/styles";
 import SwipeableTextMobileStepper from './horizontalStepper';
+import AboutMe from './me';
+import Projects from './projects';
 
 const useStyles = makeStyles(theme => ({
 	sectionTitle: {
@@ -34,13 +36,17 @@ export function Section(props){
 
                 {/* Content */}
                 <Grid container className={props.contentClass}>
-                    {/* {props.title==='Projects' &&
-                        info.projects.map((project)=>{
-                            return(<Card info={project}/>)
-                        })
-                    } */}
+                    {props.title==='Projects' &&
+                        // info.projects.map((project)=>{
+                        //     return(<Card info={project}/>)
+                        // })
+                        <Projects/>
+                    }
                     {props.title==='Experience' &&
                         <SwipeableTextMobileStepper/>
+                    }
+                    {props.title === 'About Me' &&
+                        <AboutMe/>
                     }
                 </Grid>
             

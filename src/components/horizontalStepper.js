@@ -76,7 +76,8 @@ const useStyles = makeStyles(theme => ({
     fontFamily: theme.typography.h1.fontFamily
   },
   workList: {
-    paddingLeft: theme.spacing(7)
+    paddingLeft: theme.spacing(7),
+    padding: theme.spacing(1)
   },
   img: {
     height: 255,

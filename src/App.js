@@ -32,7 +32,8 @@ const useStyles = makeStyles(theme => ({
     icons: {
         paddingTop: '0.3em',
         display: 'grid',
-        gridTemplateColumns: '1fr 1fr 1fr',
+        gridTemplateColumns: '1fr 1fr 1fr 1fr',
+        gridGap: '10px',
         width: '100px'
     },
 	titleContainer: {
@@ -63,7 +64,7 @@ function Title(){
                 <div id="name-div">
                     <Typography variant="h3" color="primary" className={classes.title}>Shardool Patel</Typography>
                     <Typography variant="body1">
-                        Learner | Student | Software Engineer 
+                        Student | Software Engineer 
                     </Typography>	
                     <Box className={classes.icons}>
                         <Tooltip title="About Me">
@@ -79,6 +80,11 @@ function Title(){
                         <Tooltip title="Projects">
                             <a href="Projects">
                             <Icon className="material-icons-outlined">palette</Icon>
+                            </a>
+                        </Tooltip>
+                        <Tooltip title="Resume">
+                            <a href="/Resume">
+                            <Icon className="material-icons-outlined">save_alt</Icon>
                             </a>
                         </Tooltip>
                     </Box>	

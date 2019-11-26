@@ -39,7 +39,7 @@ const tutorialSteps = [
     link: 'https://github.com/startsup/lectureboard',
     techUsed: 'React, Javascript, CSS, Node.js, WebSockets, SVG, curve-fitting',
     imgPath: '/lecture.png',
-  },
+},
 ];
 
 const useStyles = makeStyles(theme => ({
@@ -53,7 +53,7 @@ const useStyles = makeStyles(theme => ({
   header: {
     display: 'flex',
     alignItems: 'center',
-    height: 50,
+    minHeight: 50,
     paddingLeft: theme.spacing(5),
     backgroundColor: theme.palette.background.default,
   },
@@ -63,11 +63,18 @@ const useStyles = makeStyles(theme => ({
   },
   imageContainer: {
 		paddingLeft: theme.spacing(5),
-		padding: theme.spacing(1),
+    padding: theme.spacing(1),
 		paddingRight: theme.spacing(3),
     display: 'grid',
-    gridTemplateColumns: '50% 50%',
-    justifyItems: 'end'
+    gridTemplateColumns: 'auto 50%',
+    justifyItems: 'end',
+    [theme.breakpoints.down('sm')]: {
+     
+      gridTemplateColumns: '1fr',
+      gridTemplateRows: 'auto 1fr',
+      justifyItems: 'start'
+    },
+    
 	},
 	buttonContainer: {
 			position: 'relative'
@@ -82,7 +89,10 @@ const useStyles = makeStyles(theme => ({
 		cursor: 'pointer'
 	},
   img: {
-    height: '200px',
+    [theme.breakpoints.down('sm')]: {
+      height: '125px'
+    },
+    maxHeight: '200px',
 		borderRadius: theme.shape.borderRadius,
     backgroundSize: 'cover',
     opacity: 0.4,

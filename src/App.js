@@ -16,6 +16,7 @@ import CanvasScene from './components/canvas';
 import Tooltip from '@material-ui/core/Tooltip';
 import Icon from '@material-ui/core/Icon';
 import { width } from '@material-ui/system';
+import Resume from './res/Shardool_Resume.pdf';
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -84,7 +85,7 @@ function Title(){
                             </a>
                         </Tooltip>
                         <Tooltip title="Resume">
-                            <a href="/static/media/Shardool_Resume.pdf">
+                            <a href={Resume}>
                             <Icon className="material-icons-outlined">save_alt</Icon>
                             </a>
                         </Tooltip>

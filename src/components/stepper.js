@@ -1,136 +1,88 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import Stepper from '@material-ui/core/Stepper';
+import ListItem from '@material-ui/core/ListItem';
+import { makeStyles } from "@material-ui/styles";
+import List from '@material-ui/core/List';
+import ListItemText from '@material-ui/core/ListItemText';
+import Divider from '@material-ui/core/Divider';
+
 import Step from '@material-ui/core/Step';
-import StepLabel from '@material-ui/core/StepLabel';
-import StepContent from '@material-ui/core/StepContent';
-import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
-import getMuiTheme from 'material-ui/styles/getMuiTheme'
+import { Stepper, StepContent } from '@material-ui/core';
 
-const muiTheme = getMuiTheme({
-    stepper: {
-        iconColor: 'green' // or logic to change color
+
+
+const useStyles = makeStyles(theme => ({
+    root: {
+      width: '90%',
+      margin: 'auto'
+    },
+    button: {
+      marginTop: theme.spacing(1),
+      marginRight: theme.spacing(1),
+    },
+    actionsContainer: {
+      marginBottom: theme.spacing(2),
+    },
+    resetContainer: {
+      padding: theme.spacing(3),
+    },
+  }));
+
+
+
+
+
+export default function VerticalLinearStepper(props) {
+    const classes = useStyles();
+    const [activeStep, setActiveStep] = React.useState(0);
+
+    const getSteps = () => {
+        return props.info.experience.map((work) => work.title)
     }
-})
 
-const styles = theme => ({
-  root: {
-    width: '100%',
-  },
-  button: {
-    marginTop: theme.spacing.unit,
-    marginRight: theme.spacing.unit,
-  },
-  actionsContainer: {
-    marginBottom: theme.spacing.unit * 2,
-  },
-  resetContainer: {
-    padding: theme.spacing.unit * 3,
-  },
-  typography: {
-    fontFamily: "\"Hammersmith One\", sans-serif"
-  },
-});
-
-function getSteps() {
-  return ['Software Team Dev | ARVI', 'Create an ad group', 'Create an ad'];
-}
-
-function getStepContent(step) {
-  switch (step) {
-    case 0:
-      return `For each ad campaign that you create, you can control how much
-              you're willing to spend on clicks and conversions, which networks
-              and geographical locations you want your ads to show on, and more.`;
-    case 1:
-      return 'An ad group contains one or more ads which target a shared set of keywords.';
-    case 2:
-      return `Try out different ad text to see what brings in the most customers,
-              and learn how to enhance your ads using features like ad extensions.
-              If you run into any problems with your ads, find out how to tell if
-              they're running and how to resolve approval issues.`;
-    default:
-      return 'Unknown step';
-  }
-}
-
-class VerticalLinearStepper extends React.Component {
-  state = {
-    activeStep: 0,
-  };
-
-  handleNext = () => {
-    this.setState(state => ({
-      activeStep: state.activeStep + 1,
-    }));
-  };
-
-  handleBack = () => {
-    this.setState(state => ({
-      activeStep: state.activeStep - 1,
-    }));
-  };
-
-  handleReset = () => {
-    this.setState({
-      activeStep: 0,
-    });
-  };
-
-  render() {
-    const { classes } = this.props;
     const steps = getSteps();
-    const { activeStep } = this.state;
+  
+   
+    const getStepContent = (step) => {
+        return props.info.experience[step].desc
+    }
+    const getStepTimeline = (step) => {
+        return props.info.experience[step].timeline
+    }
 
+    const handleNext = () => {
+      setActiveStep(prevActiveStep => prevActiveStep + 1);
+    };
+  
+    const handleBack = () => {
+      setActiveStep(prevActiveStep => prevActiveStep - 1);
+    };
+  
+    const handleReset = () => {
+      setActiveStep(0);
+    };
+  
     return (
       <div className={classes.root}>
-        <Stepper activeStep={activeStep} orientation="vertical">
-          {steps.map((label, index) => (
-            <Step key={label}>
-              <StepLabel className={classes.typography}>{label}</StepLabel>
-              <StepContent>
-                <Typography>{getStepContent(index)}</Typography>
-                <div className={classes.actionsContainer}>
-                  <div>
-                    <Button
-                      disabled={activeStep === 0}
-                      onClick={this.handleBack}
-                      className={classes.button}
-                    >
-                      Back
-                    </Button>
-                    <Button
-                      variant="contained"
-                      color="primary"
-                      onClick={this.handleNext}
-                      className={classes.button}
-                    >
-                      {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
-                    </Button>
-                  </div>
-                </div>
-              </StepContent>
+      <Stepper orientation="vertical">
+        <List component="nav" aria-label="main mailbox folders">
+          <ListItem>
+            <Step>
+
+            <StepContent>
+              asd
+            </StepContent>
             </Step>
-          ))}
-        </Stepper>
-        {activeStep === steps.length && (
-          <Paper square elevation={0} className={classes.resetContainer}>
-            <Typography>All steps completed - you&apos;re finished</Typography>
-            <Button onClick={this.handleReset} className={classes.button}>
-              Reset
-            </Button>
-          </Paper>
-        )}
+          </ListItem>
+          
+          <ListItem>
+            <ListItemText primary="Drafts" />
+          </ListItem>
+        </List>
+      </Stepper>
+     
       </div>
     );
   }
-}
-
-VerticalLinearStepper.propTypes = {
-  classes: PropTypes.object,
-};
-
-export default withStyles(styles)(VerticalLinearStepper);

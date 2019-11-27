@@ -29,7 +29,7 @@ const tutorialSteps = [
     imgPath: '/nodeM.png',
 	},
 	{
-    label: 'Olo | 2d touch screen game with custom made physics engine',
+    label: 'Olo | 2D touch screen game with custom made physics engine',
     link: 'https://github.com/startsup/lectureboard',
     techUsed: 'Java, JavaFX, Object Oriented Programming, KeyFrame Animations',
     imgPath: '/olo.png',
@@ -39,7 +39,13 @@ const tutorialSteps = [
     link: 'https://github.com/startsup/lectureboard',
     techUsed: 'React, Javascript, CSS, Node.js, WebSockets, SVG, curve-fitting',
     imgPath: '/lecture.png',
-},
+  },
+  {
+    label: 'DriveSafe | Route Finder that avoids accident prone zones.',
+    link: 'https://github.com/startsUp/DriveSafe',
+    techUsed: 'Java, JavaFx, MultiThreading, Google Maps API, HTML, Graphs (Dijkstra\'s algorithm)',
+    imgPath: '/drivesafe.png',
+  },
 ];
 
 const useStyles = makeStyles(theme => ({

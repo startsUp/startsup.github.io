@@ -22,7 +22,7 @@ const useStyles = makeStyles(theme => ({
 export function Section(props){
     const classes = useStyles();
     return (
-        <Paper className="outlined-paper">
+        <Paper id={props.link} className="outlined-paper">
            
                 {/* Title  */}
                 <Grid container className={classes.sectionTitle} spacing={1}>

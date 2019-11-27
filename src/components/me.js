@@ -20,7 +20,7 @@ const useStyles = makeStyles(theme => ({
 export default function AboutMe(props) {
   const classes = useStyles();
   return (
-      <Box id="Me" className={classes.container}>
+      <Box className={classes.container}>
           I'm a 3rd year Software Engineering and Embedded Systems Student from McMaster University. Experienced in full stack development with <b>Java (Spring), .NET (Entity Framework)</b>  in the backend 
           and <b>Angular/React</b> in the frontend as well as DevOps - primiarily in <b>Jenkins</b>. Outside of the tech world, I love music, soccer and snowboarding. 
       </Box>

@@ -56,6 +56,7 @@ const useStyles = makeStyles(theme => ({
 	}
     }));
 
+
 function Title(){
     const classes = useStyles();
     return(
@@ -78,12 +79,12 @@ function Title(){
                             </a>
                         </Tooltip>
                         <Tooltip title="Projects">
-                            <a href="Projects">
+                            <a href="#Projects">
                             <Icon className="material-icons-outlined">palette</Icon>
                             </a>
                         </Tooltip>
                         <Tooltip title="Resume">
-                            <a href="/Resume">
+                            <a href="/static/media/Shardool_Resume.pdf">
                             <Icon className="material-icons-outlined">save_alt</Icon>
                             </a>
                         </Tooltip>
@@ -112,9 +113,9 @@ export default function Home(props){
 			
 					
 					<Box>
-                        <Section title='About Me' contentClass='aboutme' icon="person_outline"/>
-						<Section title='Experience' contentClass='experience' icon="work_outline"/>
-						<Section title='Projects' contentClass='projects' icon="palette"/>
+                        <Section title='About Me' link="Me" contentClass='aboutme' icon="person_outline"/>
+						<Section title='Experience' link="Work" contentClass='experience' icon="work_outline"/>
+						<Section title='Projects' link="Projects" contentClass='projects' icon="palette"/>
 					</Box>
 					
 			</Container>

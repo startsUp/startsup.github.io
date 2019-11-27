@@ -1,23 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "f718cea04cabee746642166bcecb80f9",
+    "revision": "7f15553cc3763dbe0c5c18f3aea624f0",
     "url": "/index.html"
   },
   {
-    "revision": "3948453ba7d9ce59f58c",
+    "revision": "9727ef865bb97e567ec2",
     "url": "/static/css/main.c6dfa776.chunk.css"
   },
   {
-    "revision": "6106089b443b9da45160",
-    "url": "/static/js/2.19aa1da8.chunk.js"
+    "revision": "4389640404dbf2c4ddf9",
+    "url": "/static/js/2.39baf1c8.chunk.js"
   },
   {
-    "revision": "3948453ba7d9ce59f58c",
-    "url": "/static/js/main.bdd3fe7f.chunk.js"
+    "revision": "9727ef865bb97e567ec2",
+    "url": "/static/js/main.cc91df23.chunk.js"
   },
   {
     "revision": "8ad1cfe2009bbefe7b78",
     "url": "/static/js/runtime-main.21d75647.js"
+  },
+  {
+    "revision": "3a13313d991d2674cefc346fdc81971e",
+    "url": "/static/media/Shardool_Resume.3a13313d.pdf"
   },
   {
     "revision": "033af3ab9116461e86ab039ec3f464c5",

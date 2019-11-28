@@ -33,12 +33,9 @@ const tutorialSteps = [
     label: 'Autonomous Robots and Vehicles Innovations | Software Developer',
     timeline: 'Nov 2018 - May 2019',
     work: [
-        'Applied Object Oriented design principles to build and deploy full-stack applications for internal business users using .NET, Java and Angular',
-        'Promptly implemented changes and added features to internal applications by coordinating with business users.',
-        'Optimized SQL queries for various internal and external applications.',
-        'Created standard Jenkins Pipelines for CI/CD for all applications cutting down configuration and maintenance time by 99%.',
-        'Setup Kubernetes on-prem and created pipelines to build containers and deploy to Azure registry and Kubernetes cluster.',
-        'Automated configuration tasks using Ansible.',
+        'Implemented pub/sub for a sensor network in an autonomous vehicle using Raspberry Pi and Arduino.',
+      'Worked with different sensors (LIDAR, stereo camera, radar) to implement object classification model.',
+      'Followed agile methodology to design, develop and test software.'
     ],
     imgPath:
       'https://images.unsplash.com/photo-1538032746644-0212e812a9e7?auto=format&fit=crop&w=400&h=250&q=60',
@@ -47,12 +44,10 @@ const tutorialSteps = [
     label: 'Oshawa Power and Utilities | Summer Intern',
     timeline: 'May 2017 - August 2017',
     work: [
-        'Applied Object Oriented design principles to build and deploy full-stack applications for internal business users using .NET, Java and Angular',
-        'Promptly implemented changes and added features to internal applications by coordinating with business users.',
-        'Optimized SQL queries for various internal and external applications.',
-        'Created standard Jenkins Pipelines for CI/CD for all applications cutting down configuration and maintenance time by 99%.',
-        'Setup Kubernetes on-prem and created pipelines to build containers and deploy to Azure registry and Kubernetes cluster.',
-        'Automated configuration tasks using Ansible.',
+        'Created Inventory Excel reports and documented various procurement procedures.',
+        'Used Excel Macros and VBA to automate data entry tasks.',
+        'Optimized procurement and inventory management software by clearing corrupted data.',
+        'Gained project management knowledge by shadowing and assisting project manager through the company’s office relocation project.',
     ],
     imgPath:
       'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=400&h=250&q=80',
@@ -69,7 +64,7 @@ const useStyles = makeStyles(theme => ({
     alignItems: 'center',
     height: 50,
     paddingLeft: theme.spacing(5),
-    backgroundColor: theme.palette.background.default,
+    // backgroundColor: theme.palette.background.default,
   },
   label: {
     fontWeight: '700',

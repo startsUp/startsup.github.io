@@ -61,7 +61,7 @@ const useStyles = makeStyles(theme => ({
     alignItems: 'center',
     minHeight: 50,
     paddingLeft: theme.spacing(5),
-    backgroundColor: theme.palette.background.default,
+    // backgroundColor: theme.palette.background.default,
   },
   label: {
     fontWeight: '700',
@@ -78,6 +78,7 @@ const useStyles = makeStyles(theme => ({
      
       gridTemplateColumns: '1fr',
       gridTemplateRows: 'auto 1fr',
+      gridGap: theme.spacing(1),
       justifyItems: 'start'
     },
     

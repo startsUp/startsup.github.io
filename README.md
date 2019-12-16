@@ -2,4 +2,4 @@
 Created with React and ThreeJS.
 
 ## GitHub Actions
-Worklow auto builds on every commits to source and deploys to github pages.
+Worklow auto builds on every commit to source and deploys to github pages.

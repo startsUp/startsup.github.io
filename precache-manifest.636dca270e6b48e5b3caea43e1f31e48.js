@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "bc15ee3b66eb5444a4e5668faea22a07",
+    "revision": "a9786b6c500486b362a582d196cbb6a2",
     "url": "/index.html"
   },
   {
-    "revision": "5df06fd047b71be042ae",
+    "revision": "8d374474a3cd1e724644",
     "url": "/static/css/main.c6dfa776.chunk.css"
   },
   {
@@ -12,16 +12,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/js/2.f85ae413.chunk.js"
   },
   {
-    "revision": "5df06fd047b71be042ae",
-    "url": "/static/js/main.9e19f1a2.chunk.js"
+    "revision": "8d374474a3cd1e724644",
+    "url": "/static/js/main.c896d4ab.chunk.js"
   },
   {
     "revision": "8ad1cfe2009bbefe7b78",
     "url": "/static/js/runtime-main.21d75647.js"
   },
   {
-    "revision": "ba88d60bea43058d94adb93425062f63",
-    "url": "/static/media/Shardool_Resume.ba88d60b.pdf"
+    "revision": "696438dfc02cea9d8d10e8a7ead6a0a7",
+    "url": "/static/media/Shardool_Resume.696438df.pdf"
   },
   {
     "revision": "033af3ab9116461e86ab039ec3f464c5",

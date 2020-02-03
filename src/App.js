@@ -22,7 +22,7 @@ const useStyles = makeStyles(theme => ({
         fontSize: '5px'
     },
     title: {
-		fontFamily: '"Playfair Display", serif',    
+		fontFamily: '"Playfair Display", serif',
 	},
 	box: {
 		maxHeight: '100%',
@@ -66,8 +66,8 @@ function Title(){
                 <div id="name-div">
                     <Typography variant="h3" color="primary" className={classes.title}>Shardool Patel</Typography>
                     <Typography variant="body1">
-                        Student | Software Engineer 
-                    </Typography>	
+                        Student | Software Engineer
+                    </Typography>
                     <Box className={classes.icons}>
                         <Tooltip title="About Me">
                             <a href="#Me">
@@ -89,41 +89,40 @@ function Title(){
                             <Icon className="material-icons-outlined">save_alt</Icon>
                             </a>
                         </Tooltip>
-                    </Box>	
-                    
+                    </Box>
+
                 </div>
             	<div id="canvas-div">
                     <CanvasScene/>
                 </div>
             </div>
-            	
+
         </Box>
     )
 
 }
 export default function Home(props){
     const classes = useStyles();
-  
+
     return (
         <div>
-             
+
              <Container className={classes.root}>
-                   
+
 					<CssBaseline />
 					<Title></Title>
-			
-					
+
+
 					<Box>
                         <Section title='About Me' link="Me" contentClass='aboutme' icon="person_outline"/>
 						<Section title='Experience' link="Work" contentClass='experience' icon="work_outline"/>
 						<Section title='Projects' link="Projects" contentClass='projects' icon="palette"/>
 					</Box>
-					
+
 			</Container>
         </div>
-			
-      
-    )
-  
-}
 
+
+    )
+
+}

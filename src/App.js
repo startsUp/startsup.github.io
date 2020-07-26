@@ -1,28 +1,28 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import Card from './components/card'
-import NavBar from './components/navbar'
+import React from 'react';
 import './App.css';
 import {Section} from './components/section'
 import { makeStyles } from "@material-ui/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
-import Paper from '@material-ui/core/Paper';
 import Box from '@material-ui/core/Box';
-import Grid from '@material-ui/core/Grid';
 import CanvasScene from './components/canvas';
 import Tooltip from '@material-ui/core/Tooltip';
 import Icon from '@material-ui/core/Icon';
-import { width } from '@material-ui/system';
 import Resume from './res/Shardool_Resume.pdf';
 
 const useStyles = makeStyles(theme => ({
 	root: {
 
-	},
+    },
+    lowkey:{
+        position: "absolute",
+        right: '0',
+        top: '0',
+        fontSize: '5px'
+    },
     title: {
-		fontFamily: '"Playfair Display", serif',    
+		fontFamily: '"Playfair Display", serif',
 	},
 	box: {
 		maxHeight: '100%',
@@ -61,12 +61,13 @@ function Title(){
     const classes = useStyles();
     return(
         <Box className={classes.titleContainer}>
+            <div className={classes.lowkey}>Pls hire me</div>
             <div className="title-bar">
                 <div id="name-div">
                     <Typography variant="h3" color="primary" className={classes.title}>Shardool Patel</Typography>
                     <Typography variant="body1">
-                        Student | Software Engineer 
-                    </Typography>	
+                        Student | Software Engineer
+                    </Typography>
                     <Box className={classes.icons}>
                         <Tooltip title="About Me">
                             <a href="#Me">
@@ -88,41 +89,40 @@ function Title(){
                             <Icon className="material-icons-outlined">save_alt</Icon>
                             </a>
                         </Tooltip>
-                    </Box>	
-                    
+                    </Box>
+
                 </div>
             	<div id="canvas-div">
                     <CanvasScene/>
                 </div>
             </div>
-            	
+
         </Box>
     )
 
 }
 export default function Home(props){
     const classes = useStyles();
-  
+
     return (
         <div>
-             
+
              <Container className={classes.root}>
-                   
+
 					<CssBaseline />
 					<Title></Title>
-			
-					
+
+
 					<Box>
                         <Section title='About Me' link="Me" contentClass='aboutme' icon="person_outline"/>
 						<Section title='Experience' link="Work" contentClass='experience' icon="work_outline"/>
 						<Section title='Projects' link="Projects" contentClass='projects' icon="palette"/>
 					</Box>
-					
+
 			</Container>
         </div>
-			
-      
-    )
-  
-}
 
+
+    )
+
+}

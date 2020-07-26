@@ -13,7 +13,12 @@ import { bindKeyboard } from 'react-swipeable-views-utils';
 
 const BindKeyboardSwipeableViews = bindKeyboard(SwipeableViews);
 
-const tutorialSteps = [
+const workExp = [
+  {
+    label: 'Loadlink Technologies | Software Engineering Intern',
+    timeline: "June 2020 - September 2020",
+    work: ["Designed and developed interactive data visualization platform leveraging Angular 10 and Google Maps API, giving valuable insights to 18k customers across North America."] 
+  },
   {
     label: 'ArcelorMittal Dofasco | Software Engineering Intern',
     
@@ -87,7 +92,7 @@ function SwipeableTextMobileStepper() {
   const classes = useStyles();
   const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
-  const maxSteps = tutorialSteps.length;
+  const maxSteps = workExp.length;
 
   const handleNext = () => {
     setActiveStep(prevActiveStep => prevActiveStep + 1);
@@ -104,7 +109,7 @@ function SwipeableTextMobileStepper() {
   return (
     <div className={classes.root}>
       <Paper square elevation={0} className={classes.header}>
-        <Typography className={classes.label}>{tutorialSteps[activeStep].label}</Typography>
+        <Typography className={classes.label}>{workExp[activeStep].label}</Typography>
       </Paper>
       <BindKeyboardSwipeableViews
         axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
@@ -112,7 +117,7 @@ function SwipeableTextMobileStepper() {
         onChangeIndex={handleStepChange}
         enableMouseEvents
       >
-        {tutorialSteps.map((step, index) => (
+        {workExp.map((step, index) => (
         <Paper square elevation={0} >
           <ul className={classes.workList} key={step.label}>
             {step.work.map((desc) => 

@@ -8,7 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Icon from '@material-ui/core/Icon';
 import { makeStyles } from "@material-ui/styles";
-import SwipeableTextMobileStepper from './horizontalStepper';
+import SwipeableTextMobileStepper from './experience'
 import AboutMe from './me';
 import Projects from './projects';
 

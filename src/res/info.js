@@ -44,8 +44,13 @@ export default {
     ],
     "experience": [
         {
+          "title": "Software Engineering Intern - Loadlink Technologies",
+          "timeline": "June 2020 - September 2020",
+          "desc": ["Designed and developed interactive data visualization platform leveraging Angular 10 and Google Maps API, giving valuable insights to 18k customers across North America."] 
+        },
+        {
             "title": "Software Developer Intern - ArcelorMittal Dofasco, Hamilton ON",
-            "timeline": "May 2019 - Present",
+            "timeline": "May 2019 - April 2020",
             "desc": ["Developed full stack applications for customers using .NET and angular.",
                      "Optimized SQL queries for internal sales application",
                      "Implemented changes to services by communicating with internal business users.",

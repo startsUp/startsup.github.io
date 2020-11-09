@@ -13,7 +13,7 @@ export default containerElement => {
     var raycaster = new THREE.Raycaster();
 	var edge = new THREE.Vector2();
 	var edgePoint = new THREE.Vector3();
-	const createScene = new RotatingPotScene(sceneManager);
+	const createScene = new PortalScene(sceneManager);
 	const LEFT_EDGE = {x: -1, y: 0};
 	const RIGHT_EDGE = {x: 1, y: 0};
 

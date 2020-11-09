@@ -22,7 +22,7 @@ export class Portal implements SceneSubject{
             this.portal.position.set(x,y,z);
 
             var {x, y, z} = this.initOptions.rotation;
-            this.portal.rotation .set(x,y,z);
+            this.portal.rotation.set(x,y,z);
         }
         this.sceneManager.addSubject( this );
         

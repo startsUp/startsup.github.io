@@ -6,32 +6,8 @@ import * as serviceWorker from './serviceWorker';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';  
 import blueGrey from "@material-ui/core/colors/blueGrey";
 import lightGreen from "@material-ui/core/colors/lightGreen";
-import { fade } from '@material-ui/core/styles/colorManipulator';
+import { theme } from './theme'
 
-const theme = createMuiTheme({
-    palette: {
-        background: {
-            paper: fade('#fff',0.16),
-            default: '#ECE9E6'
-
-        }
-       
-    },
- 
-     typography: {
-        fontFamily: [
-            '"Playfair Display", serif',
-            
-        ].join(','),
-        body1: {
-            fontFamily: '"Lato", sans-serif'
-        },
-        body2: {
-            fontFamily: '"Lato", sans-serif',
-            fontSize: '0.935rem'
-        }
-   },
- });
 
 ReactDOM.render(
 <MuiThemeProvider theme={ theme }>

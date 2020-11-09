@@ -60,7 +60,6 @@ function Title(){
     const classes = useStyles();
     return(
         <Box className={classes.titleContainer}>
-            <div className={classes.lowkey}>Pls hire me</div>
             <div className="title-bar">
                 <div id="name-div">
                     <Typography variant="h3" color="primary" className={classes.title}>Shardool Patel</Typography>
@@ -112,11 +111,11 @@ export default function Home(props){
 					<Title></Title>
 
 
-					<Box>
+					{/* <Box>
                         <Section title='About Me' link="Me" contentClass='aboutme' icon="person_outline"/>
 						<Section title='Experience' link="Work" contentClass='experience' icon="work_outline"/>
 						<Section title='Projects' link="Projects" contentClass='projects' icon="palette"/>
-					</Box>
+					</Box> */}
 
 			</Container>
         </div>

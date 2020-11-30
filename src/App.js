@@ -95,10 +95,6 @@ function Title(){
 
                 </div>
             </div>
-            <div id="canvas-div">
-                <CanvasScene/>
-            </div>
-
         </Box>
     )
 
@@ -108,7 +104,9 @@ export default function Home(props){
 
     return (
         <div>
-
+            <div id="canvas-div">
+                <CanvasScene/>
+            </div>
              <Container className={classes.root}>
 
 					<CssBaseline />

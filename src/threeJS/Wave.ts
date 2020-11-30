@@ -67,6 +67,7 @@ export class Wave implements SceneSubject{
       const pcBuffer = this.generatePointcloud( new THREE.Color( 107, 0, 168 ), width, length );
       pcBuffer.scale.set( 10, 5, 10);
       pcBuffer.position.set( 0, 0, 0);
+      pcBuffer.rotation.set( 0, 4, 0);
       scene.add( pcBuffer );
       this.wave = pcBuffer
       

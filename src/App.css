@@ -6,6 +6,6 @@
 
 }
 #canvas-div{
-    width: 1000px;
-    height: 1000px;
+    width: 100vw;
+    height: 300px;
 }

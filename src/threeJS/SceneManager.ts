@@ -23,9 +23,10 @@ export default class SceneManager {
         this.clock = new THREE.Clock();
         this.canvas = canvas;
 
+        console.warn('Canvas deets', canvas)
         const screenMetaData = {
-            width: 700,
-            height: 500,
+            width: 1000,
+            height: 300,
             canvas: canvas
         }
         

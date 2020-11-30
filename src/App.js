@@ -40,7 +40,9 @@ const useStyles = makeStyles(theme => ({
         width: '100px'
     },
 	titleContainer: {
-		padding: '5em 0 5em 0'
+        padding: '5em 0 5em 0',
+        position: 'fixed',
+        top: '1em'
 	},
 	image: {
 		backgroundImage: "url(https://source.unsplash.com/random)",
@@ -104,13 +106,11 @@ export default function Home(props){
 
     return (
         <div>
-            <div id="canvas-div">
-                <CanvasScene/>
-            </div>
+            <CanvasScene/>
+            <Title></Title>
              <Container className={classes.root}>
 
 					<CssBaseline />
-					<Title></Title>
 
 
 					{/* <Box>

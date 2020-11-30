@@ -22,7 +22,7 @@ export default containerElement => {
   
 
 
- // bindEventListeners();
+ bindEventListeners();
   render();
 	
   function createCanvas(document, containerElement) {
@@ -32,15 +32,15 @@ export default containerElement => {
   }
 
   function bindEventListeners() {
-    window.onresize = resizeCanvas;
+    window.addEventListener( 'resize', resizeCanvas, false );
     resizeCanvas();
   }
   
   function resizeCanvas() {
     canvas.style.width = '100%';
     canvas.style.height= '100%';
-    canvas.width = canvas.offsetWidth;
-    canvas.height = canvas.offsetHeight;
+    // canvas.width = canvas.offsetWidth;
+    // canvas.height = canvas.offsetHeight;
     sceneManager.onWindowResize();
   }
 

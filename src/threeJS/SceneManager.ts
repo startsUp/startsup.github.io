@@ -67,7 +67,7 @@ export default class SceneManager {
         const renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true }); 
         const DPR = (window.devicePixelRatio) ? window.devicePixelRatio : 1;
         renderer.setPixelRatio(DPR);
-        renderer.setSize(width, height);
+        // renderer.setSize(width, height);
 
         // renderer.outputEncoding = THREE.sRGBEncoding;
 
@@ -130,12 +130,14 @@ export default class SceneManager {
     }
 
     onWindowResize = () => {
-        const { width, height } = this.canvas;
+        // const { width, height } = this.renderer.domElement;
+        // const canvas = renderer.domElement;
+        // camera.aspect = canvas.clientWidth / canvas.clientHeight;
+        // camera.updateProjectionMatrix();
 
-
-        this.camera.aspect = width / height;
+        this.camera.aspect = window.innerWidth / window.innerHeight;
         this.camera.updateProjectionMatrix();
         
-        this.renderer.setSize(width, height);
+        this.renderer.setSize(window.innerWidth , window.innerHeight);
     }
 }

@@ -18,7 +18,7 @@ function CanvasScene (){
   }, [threeContainer])
 
   return (
-	  <div ref={element => threeContainer = element}>
+	  <div id="canvas-div" ref={element => threeContainer = element}>
 		  
       </div>
   );

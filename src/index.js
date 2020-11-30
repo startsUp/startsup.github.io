@@ -13,7 +13,6 @@ const theme = createMuiTheme({
         background: {
             paper: fade('#fff',0.16),
             default: '#ECE9E6'
-
         }
        
     },
@@ -21,8 +20,10 @@ const theme = createMuiTheme({
      typography: {
         fontFamily: [
             '"Playfair Display", serif',
-            
         ].join(','),
+        h1: {
+            fontFamily: "'Major Mono Display', monospace"
+        },
         body1: {
             fontFamily: '"Lato", sans-serif'
         },

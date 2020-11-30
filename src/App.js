@@ -21,8 +21,12 @@ const useStyles = makeStyles(theme => ({
         fontSize: '5px'
     },
     title: {
-		fontFamily: '"Playfair Display", serif',
-	},
+        // background: 'linear-gradient(90deg, rgba(226,19,194,1) 0%, rgba(129,200,237,1) 30%, rgba(50,240,39,1) 65%, rgba(255,201,4,1) 100%)',
+        // WebkitBackgroundClip: 'text',
+        // WebkitTextFillColor: 'transparent'
+        // -webkit-background-clip: text;
+	    // -webkit-text-fill-color: transparent;
+    },
 	box: {
 		maxHeight: '100%',
         overflow: 'auto',
@@ -60,10 +64,9 @@ function Title(){
     const classes = useStyles();
     return(
         <Box className={classes.titleContainer}>
-            <div className={classes.lowkey}>Pls hire me</div>
             <div className="title-bar">
                 <div id="name-div">
-                    <Typography variant="h3" color="primary" className={classes.title}>Shardool Patel</Typography>
+                    <Typography variant="h1" className={classes.title}>Shardool Patel</Typography>
                     <Typography variant="body1">
                         Student | Software Engineer
                     </Typography>
@@ -91,9 +94,9 @@ function Title(){
                     </Box>
 
                 </div>
-            	<div id="canvas-div">
-                    <CanvasScene/>
-                </div>
+            </div>
+            <div id="canvas-div">
+                <CanvasScene/>
             </div>
 
         </Box>
@@ -112,11 +115,11 @@ export default function Home(props){
 					<Title></Title>
 
 
-					<Box>
+					{/* <Box>
                         <Section title='About Me' link="Me" contentClass='aboutme' icon="person_outline"/>
 						<Section title='Experience' link="Work" contentClass='experience' icon="work_outline"/>
 						<Section title='Projects' link="Projects" contentClass='projects' icon="palette"/>
-					</Box>
+					</Box> */}
 
 			</Container>
         </div>

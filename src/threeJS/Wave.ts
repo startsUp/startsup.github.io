@@ -2,6 +2,7 @@ import  SceneSubject  from './SceneSubject'
 import * as THREE from 'three'
 import { GLTFLoader, GLTF } from 'three/examples/jsm/loaders/GLTFLoader';
 import SceneManager from './SceneManager';
+import { BufferGeometry } from 'three';
 
 export class Wave implements SceneSubject{
     public wave: THREE.Points;
@@ -10,6 +11,7 @@ export class Wave implements SceneSubject{
     public width: number
     public height: number 
 
+    private count: number = 0
     generatePointCloudGeometry( color, width, length ) {
 
       const geometry = new THREE.BufferGeometry();
@@ -72,9 +74,10 @@ export class Wave implements SceneSubject{
       pcBuffer.scale.set( 10, 5, 10);
       pcBuffer.position.set( 0, 0, 0);
       pcBuffer.rotation.set( 0, 4, 0);
-      scene.add( pcBuffer );
       this.wave = pcBuffer
-      
+
+      sceneManager.addSubject( this )
+
     }
 
     getSubject(): THREE.Object3D {
@@ -83,9 +86,11 @@ export class Wave implements SceneSubject{
 
     update = () => {
       // update point cloud wave
-      const positions = this.wave.geometry.attributes.position.
+      var geometry = this.wave.geometry as BufferGeometry
+      var positions = geometry.attributes.position
       const width = this.width
       const length = this.height
+      let k = 0;
       for ( let i = 0; i < width; i ++ ) {
 
         for ( let j = 0; j < length; j ++ ) {
@@ -93,23 +98,32 @@ export class Wave implements SceneSubject{
           const u = i / width;
           const v = j / length;
           const x = u - 0.5;
-          const y = ( Math.cos( u * Math.PI * 4 ) + Math.sin( v * Math.PI * 8 ) ) / 20;
+          const y = ( Math.cos( ((u + this.count)*0.3) * Math.PI * 4 ) + Math.sin(((v + this.count)*0.3) * Math.PI * 8 ) ) / 20;
           const z = v - 0.5;
 
-          positions[ 3 * k ] = x;
-          positions[ 3 * k + 1 ] = y;
-          positions[ 3 * k + 2 ] = z;
+          // positions.setXYZ(3 * k, x, y, z)
+          positions.setX(3 * k, x)
+          positions.setY(3 * k + 1, y)
+          positions.setZ(3 * k + 2, z)
+          // positions.setXYZ(3 * k + 1, x, y, z)
+          // positions.setXYZ(3 * k + 2, x, y, z)
+          // positions[ 3 * k ] = x;
+          // positions[ 3 * k + 1 ] = y;
+          // positions[ 3 * k + 2 ] = z;
 
-          const intensity = ( y + 0.1 ) * 5;
-          colors[ 3 * k ] = color.r * intensity;
-          colors[ 3 * k + 1 ] = color.g * intensity;
-          colors[ 3 * k + 2 ] = color.b * intensity;
+          // const intensity = ( y + 0.1 ) * 5;
+          // colors[ 3 * k ] = color.r * intensity;
+          // colors[ 3 * k + 1 ] = color.g * intensity;
+          // colors[ 3 * k + 2 ] = color.b * intensity;
 
           k ++;
 
         }
 
       }
+
+      this.count += 0.001;
+      positions.needsUpdate = true; 
       // console.log(this.wave.position)
     }
 }

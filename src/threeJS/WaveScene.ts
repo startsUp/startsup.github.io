@@ -7,7 +7,6 @@ export default class WaveScene{
     private wave: Wave;
 
     constructor(private sceneManager: SceneManger){
-        const scene = sceneManager.getScene()        
         this.wave = new Wave(sceneManager);
     }
 

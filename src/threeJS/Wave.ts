@@ -4,9 +4,11 @@ import { GLTFLoader, GLTF } from 'three/examples/jsm/loaders/GLTFLoader';
 import SceneManager from './SceneManager';
 
 export class Wave implements SceneSubject{
-    public wave: THREE.Object3D;
+    public wave: THREE.Points;
     public rotation: THREE.Vector3;
     public speed: THREE.Vector3;
+    public width: number
+    public height: number 
 
     generatePointCloudGeometry( color, width, length ) {
 
@@ -44,6 +46,7 @@ export class Wave implements SceneSubject{
       }
 
       geometry.setAttribute('position', new THREE.BufferAttribute( positions, 3 ) );
+      geometry.attributes.position.needsUpdate = true;
       geometry.setAttribute( 'color', new THREE.BufferAttribute( colors, 3 ) );
       geometry.computeBoundingBox();
 
@@ -55,16 +58,17 @@ export class Wave implements SceneSubject{
 			const pointSize = 0.05;
       const geometry = this.generatePointCloudGeometry( color, width, length );
       const material = new THREE.PointsMaterial( { size: pointSize, color: 0xff44ff } );
-
+    
       return new THREE.Points( geometry, material );
 
     }
 
     constructor(private sceneManager: SceneManager){
       const scene = sceneManager.getScene()
-      const width = 80;
-			const length = 160;
-      const pcBuffer = this.generatePointcloud( new THREE.Color( 107, 0, 168 ), width, length );
+      this.width = 80;
+      this.height = 160;
+
+      const pcBuffer = this.generatePointcloud( new THREE.Color( 107, 0, 168 ), this.width, this.height );
       pcBuffer.scale.set( 10, 5, 10);
       pcBuffer.position.set( 0, 0, 0);
       pcBuffer.rotation.set( 0, 4, 0);
@@ -79,6 +83,33 @@ export class Wave implements SceneSubject{
 
     update = () => {
       // update point cloud wave
+      const positions = this.wave.geometry.attributes.position.
+      const width = this.width
+      const length = this.height
+      for ( let i = 0; i < width; i ++ ) {
+
+        for ( let j = 0; j < length; j ++ ) {
+
+          const u = i / width;
+          const v = j / length;
+          const x = u - 0.5;
+          const y = ( Math.cos( u * Math.PI * 4 ) + Math.sin( v * Math.PI * 8 ) ) / 20;
+          const z = v - 0.5;
+
+          positions[ 3 * k ] = x;
+          positions[ 3 * k + 1 ] = y;
+          positions[ 3 * k + 2 ] = z;
+
+          const intensity = ( y + 0.1 ) * 5;
+          colors[ 3 * k ] = color.r * intensity;
+          colors[ 3 * k + 1 ] = color.g * intensity;
+          colors[ 3 * k + 2 ] = color.b * intensity;
+
+          k ++;
+
+        }
+
+      }
       // console.log(this.wave.position)
     }
 }

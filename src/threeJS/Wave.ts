@@ -1,6 +1,5 @@
 import  SceneSubject  from './SceneSubject'
 import * as THREE from 'three'
-import { GLTFLoader, GLTF } from 'three/examples/jsm/loaders/GLTFLoader';
 import SceneManager from './SceneManager';
 import { BufferGeometry } from 'three';
 
@@ -57,7 +56,7 @@ export class Wave implements SceneSubject{
 
     generatePointcloud( color, width, length ) {
       const threshold = 0.1;
-			const pointSize = 0.05;
+			const pointSize = 0.08;
       const geometry = this.generatePointCloudGeometry( color, width, length );
       const material = new THREE.PointsMaterial( { size: pointSize, color: 0xff44ff } );
     
@@ -73,7 +72,13 @@ export class Wave implements SceneSubject{
       const pcBuffer = this.generatePointcloud( new THREE.Color( 107, 0, 168 ), this.width, this.height );
       pcBuffer.scale.set( 10, 5, 10);
       pcBuffer.position.set( 0, 0, 0);
-      pcBuffer.rotation.set( 0, 4, 0);
+      pcBuffer.rotateOnWorldAxis(new THREE.Vector3(0,1,0), Math.PI/4);
+      pcBuffer.rotateOnWorldAxis(new THREE.Vector3(1,0,0), -Math.PI/10);
+      // pcBuffer.rotateOnAxis()
+      // pcBuffer.
+      // pcBuffer.rotateOnWorldAxis(new THREE.Vector3(1,0,0), -Math.PI/7);
+      // pcBuffer.rotateOnWorldAxis(new THREE.Vector3(0, 0,1), Math.PI/6);
+      // pcBuffer.rotateOnWorldAxis(new THREE.Vector3(0,1,0), 20);
       this.wave = pcBuffer
 
       sceneManager.addSubject( this )
@@ -86,6 +91,7 @@ export class Wave implements SceneSubject{
 
     update = () => {
       // update point cloud wave
+      this.wave.rotateOnWorldAxis(new THREE.Vector3(0,1,0), 0.00001);
       var geometry = this.wave.geometry as BufferGeometry
       var positions = geometry.attributes.position
       // var colors = geometry.attributes

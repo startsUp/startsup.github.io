@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import {Section} from './components/section'
-import { makeStyles } from "@material-ui/styles";
+import { makeStyles, ThemeProvider } from "@material-ui/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
@@ -9,11 +9,9 @@ import Box from '@material-ui/core/Box';
 import CanvasScene from './components/canvas';
 import Tooltip from '@material-ui/core/Tooltip';
 import Icon from '@material-ui/core/Icon';
-
+import { useMediaQuery } from '@material-ui/core';
+import { getTheme } from './theme'
 const useStyles = makeStyles(theme => ({
-	root: {
-
-    },
     lowkey:{
         position: "absolute",
         right: '0',
@@ -41,8 +39,8 @@ const useStyles = makeStyles(theme => ({
     },
 	titleContainer: {
         padding: '5em 0 5em 0',
-        position: 'fixed',
-        top: '1em'
+        // position: 'fixed',
+        // top: '1em'
 	},
 	image: {
 		backgroundImage: "url(https://source.unsplash.com/random)",
@@ -102,27 +100,23 @@ function Title(){
 
 }
 export default function Home(props){
-    const classes = useStyles();
+    const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
+
+    const theme = React.useMemo(
+      () => getTheme(prefersDarkMode ? 'dark' : 'light'),
+      [prefersDarkMode],
+    );
 
     return (
-        <div>
-            <CanvasScene/>
-            <Title></Title>
-             <Container className={classes.root}>
-
-					<CssBaseline />
-
-
-					{/* <Box>
-                        <Section title='About Me' link="Me" contentClass='aboutme' icon="person_outline"/>
-						<Section title='Experience' link="Work" contentClass='experience' icon="work_outline"/>
-						<Section title='Projects' link="Projects" contentClass='projects' icon="palette"/>
-					</Box> */}
-
-			</Container>
-        </div>
-
-
+        <ThemeProvider theme={theme}>
+            <div>
+                <CanvasScene/>
+                <Container>
+                        <Title></Title>
+                        <CssBaseline />
+                </Container>
+            </div>
+        </ThemeProvider>
     )
 
 }

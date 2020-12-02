@@ -88,6 +88,7 @@ export class Wave implements SceneSubject{
       // update point cloud wave
       var geometry = this.wave.geometry as BufferGeometry
       var positions = geometry.attributes.position
+      // var colors = geometry.attributes
       const width = this.width
       const length = this.height
       let k = 0;
@@ -98,13 +99,15 @@ export class Wave implements SceneSubject{
           const u = i / width;
           const v = j / length;
           const x = u - 0.5;
-          const y = ( Math.cos( ((u + this.count)*0.3) * Math.PI * 4 ) + Math.sin(((v + this.count)*0.3) * Math.PI * 8 ) ) / 20;
+          const y = ( Math.cos( ((u - this.count)*0.3) * Math.PI * 4 ) + Math.sin(((v + this.count)*0.3) * Math.PI * 8 ) ) / 20;
+          // const y = ( Math.cos( u * Math.PI * 4 ) + Math.sin( v * Math.PI * 8 ) ) / 20;
+
           const z = v - 0.5;
 
-          // positions.setXYZ(3 * k, x, y, z)
-          positions.setX(3 * k, x)
-          positions.setY(3 * k + 1, y)
-          positions.setZ(3 * k + 2, z)
+          positions.setXYZ(k, x, y, z)
+          // positions.setX(3 * k, x)
+          // positions.setY(3 * k + 1, y)
+          // positions.setZ(3 * k + 2, z)
           // positions.setXYZ(3 * k + 1, x, y, z)
           // positions.setXYZ(3 * k + 2, x, y, z)
           // positions[ 3 * k ] = x;

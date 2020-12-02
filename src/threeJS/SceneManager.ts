@@ -135,9 +135,9 @@ export default class SceneManager {
         // camera.aspect = canvas.clientWidth / canvas.clientHeight;
         // camera.updateProjectionMatrix();
 
-        this.camera.aspect = window.innerWidth / window.innerHeight;
+        // this.camera.aspect = window.innerWidth / window.innerHeight;
         this.camera.updateProjectionMatrix();
         
-        this.renderer.setSize(window.innerWidth , window.innerHeight);
+        this.renderer.setSize(window.innerWidth , 200);
     }
 }

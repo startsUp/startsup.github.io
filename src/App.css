@@ -1,10 +1,5 @@
-.title-bar{
-    display: grid;
-    grid-template-columns: auto 100px;
-}
-#name-div{
 
-}
 #canvas-div{
-
+    width: 100vw;
+    height: 100%;
 }

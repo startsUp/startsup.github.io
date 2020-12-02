@@ -1,4 +1,5 @@
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import * as THREE from 'three'
 // import { Cube } from './cube.ts'
 // import { Portal } from './portal.ts'
@@ -16,14 +17,16 @@ export default class SceneManager {
     private renderer: THREE.Renderer;
     private loader: GLTFLoader;
     private sceneSubjects: SceneSubject[];
+    private controls: any;
 
     constructor(canvas: any){
         this.clock = new THREE.Clock();
         this.canvas = canvas;
 
+        console.warn('Canvas deets', canvas)
         const screenMetaData = {
-            width: 100,
-            height: 100,
+            width: 1000,
+            height: 300,
             canvas: canvas
         }
         
@@ -31,7 +34,12 @@ export default class SceneManager {
         this.renderer = this.buildRender(screenMetaData);
         this.camera = this.buildCamera(screenMetaData);
         this.loader = this.getModelLoader();
+        this.controls = this.buildController(this.camera, this.renderer)
         this.sceneSubjects = [];
+    }
+
+    buildController(camera: THREE.PerspectiveCamera, renderer: THREE.Renderer): any {
+        this.controls = new OrbitControls( camera, renderer.domElement );
     }
     
    // const sceneSubjects = createSceneSubjects(scene, loader);
@@ -59,10 +67,9 @@ export default class SceneManager {
         const renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true }); 
         const DPR = (window.devicePixelRatio) ? window.devicePixelRatio : 1;
         renderer.setPixelRatio(DPR);
-        renderer.setSize(width, height);
+        // renderer.setSize(width, height);
 
-        renderer.gammaInput = true;
-        renderer.gammaOutput = true; 
+        // renderer.outputEncoding = THREE.sRGBEncoding;
 
         return renderer;
     }
@@ -104,6 +111,9 @@ export default class SceneManager {
     }
 
     update = () => {
+        if (this.controls){
+            this.controls.update();
+        }
         const elapsedTime = this.clock.getElapsedTime();
         if(this.sceneSubjects){
             for(let i=0; i<this.sceneSubjects.length; i++)
@@ -120,12 +130,14 @@ export default class SceneManager {
     }
 
     onWindowResize = () => {
-        const { width, height } = this.canvas;
+        // const { width, height } = this.renderer.domElement;
+        // const canvas = renderer.domElement;
+        // camera.aspect = canvas.clientWidth / canvas.clientHeight;
+        // camera.updateProjectionMatrix();
 
-
-        this.camera.aspect = width / height;
+        // this.camera.aspect = window.innerWidth / window.innerHeight;
         this.camera.updateProjectionMatrix();
         
-        this.renderer.setSize(width, height);
+        this.renderer.setSize(window.innerWidth , 200);
     }
 }

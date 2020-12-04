@@ -10,6 +10,12 @@ import { Divider, IconButton, useMediaQuery } from '@material-ui/core';
 import { getTheme } from './theme'
 import { AlternateEmailOutlined, LinkedIn, WorkOutline,  } from '@material-ui/icons';
 const useStyles = makeStyles(theme => ({
+    rootCont:{
+        [theme.breakpoints.down('sm')]: {
+            paddingLeft:  '5px',
+            paddingRight:  '5px',
+        },
+    },
     lowkey:{
         position: "absolute",
         right: '0',
@@ -44,14 +50,15 @@ const useStyles = makeStyles(theme => ({
         WebkitBackgroundClip: 'text',
         WebkitTextFillColor: 'transparent',
         [theme.breakpoints.down('sm')]: {
-            gridGap: theme.spacing(2.5),
-            gap: theme.spacing(2.5),
+            gridGap: theme.spacing(2),
+            gap: theme.spacing(2),
         },
     },
 	titleContainer: {
         padding: '1em',
         paddingTop: '3em',
         [theme.breakpoints.down('sm')]: {
+            padding: '0',
             paddingTop: '1em',
         },
         // position: 'fixed',
@@ -80,7 +87,7 @@ const useStyles = makeStyles(theme => ({
         textAlign: 'center'
     },
     workTitle:{
-        
+        padding: '4px',
     },
     iconCont:{
         fontSize: '1em'
@@ -152,6 +159,14 @@ function Title(){
     )
 
 }
+function Main(){
+    const classes = useStyles()
+    return(
+        <Container className={classes.rootCont}>
+            <Title></Title>
+        </Container>
+    )
+}
 export default function Home(props){
     const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
 
@@ -163,12 +178,9 @@ export default function Home(props){
     return (
         <ThemeProvider theme={theme}>
                 <CssBaseline />
-            <div>
                 <CanvasScene/>
-                <Container>
-                        <Title></Title>
-                </Container>
-            </div>
+                <Main/>
+                
         </ThemeProvider>
     )
 

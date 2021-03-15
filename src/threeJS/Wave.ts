@@ -35,10 +35,10 @@ export class Wave implements SceneSubject{
           positions[ 3 * k + 1 ] = y;
           positions[ 3 * k + 2 ] = z;
 
-          const intensity = ( y + 0.1 ) * 5;
-          colors[ 3 * k ] = color.r * intensity;
-          colors[ 3 * k + 1 ] = color.g * intensity;
-          colors[ 3 * k + 2 ] = color.b * intensity;
+          // const intensity = ( y + 0.1 ) * 5;
+          colors[ 3 * k ] = color.r ;
+          colors[ 3 * k + 1 ] = color.g ;
+          colors[ 3 * k + 2 ] = color.b ;
 
           k ++;
 
@@ -58,7 +58,7 @@ export class Wave implements SceneSubject{
       const threshold = 0.1;
 			const pointSize = 0.08;
       const geometry = this.generatePointCloudGeometry( color, width, length );
-      const material = new THREE.PointsMaterial( { size: pointSize, color: 0xff44ff } );
+      const material = new THREE.PointsMaterial( { size: pointSize, vertexColors: true } );
     
       return new THREE.Points( geometry, material );
 
@@ -69,7 +69,7 @@ export class Wave implements SceneSubject{
       this.width = 80;
       this.height = 160;
 
-      const pcBuffer = this.generatePointcloud( new THREE.Color( 107, 0, 168 ), this.width, this.height );
+      const pcBuffer = this.generatePointcloud( new THREE.Color(0x9a52b6), this.width, this.height );
       pcBuffer.scale.set( 10, 5, 10);
       pcBuffer.position.set( 0, 0, 0);
       pcBuffer.rotateOnWorldAxis(new THREE.Vector3(0,1,0), Math.PI/4);
@@ -94,7 +94,7 @@ export class Wave implements SceneSubject{
       this.wave.rotateOnWorldAxis(new THREE.Vector3(0,1,0), 0.00001);
       var geometry = this.wave.geometry as BufferGeometry
       var positions = geometry.attributes.position
-      // var colors = geometry.attributes
+      var colors = geometry.attributes.color
       const width = this.width
       const length = this.height
       let k = 0;
@@ -111,19 +111,8 @@ export class Wave implements SceneSubject{
           const z = v - 0.5;
 
           positions.setXYZ(k, x, y, z)
-          // positions.setX(3 * k, x)
-          // positions.setY(3 * k + 1, y)
-          // positions.setZ(3 * k + 2, z)
-          // positions.setXYZ(3 * k + 1, x, y, z)
-          // positions.setXYZ(3 * k + 2, x, y, z)
-          // positions[ 3 * k ] = x;
-          // positions[ 3 * k + 1 ] = y;
-          // positions[ 3 * k + 2 ] = z;
-
-          // const intensity = ( y + 0.1 ) * 5;
-          // colors[ 3 * k ] = color.r * intensity;
-          // colors[ 3 * k + 1 ] = color.g * intensity;
-          // colors[ 3 * k + 2 ] = color.b * intensity;
+          // new THREE.Color().addScalar()
+          // colors.setXYZ(k, 65 + (k %140), 94 - (k%20), 251-(k%100))
 
           k ++;
 
@@ -133,6 +122,8 @@ export class Wave implements SceneSubject{
 
       this.count += 0.001;
       positions.needsUpdate = true; 
+      colors.needsUpdate = true; 
+      
       // console.log(this.wave.position)
     }
 }
